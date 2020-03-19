@@ -1,64 +1,43 @@
-import React, { Component } from 'react'
+import React, { useState } from "react";
 
-export default class LoginPage extends Component {
-    constructor(props) {
-        super(props)
 
-        this.state={
-            firstName: "",
-            lastName: "",
-            email: "",
-            password: "",
-            
-        }
 
-        this.handleInputChange  = this.handleInputChange.bind(this)
-    }
+const LoginPage = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+ 
+  return (
+    <form>
+      <input
+        value={name}
+        onChange={e => setName(e.target.value)}
+        placeholder="Name"
+        type="text"
+        name="name"
+        required
+      />
+  
+      <input
+        value={email}
+        onChange={e => setEmail(e.target.value)}
+        placeholder="Email address"
+        type="email"
+        name="email"
+        required
+      />
+      <input
+        value={password}
+        onChange={e => setPassword(e.target.value)}
+        placeholder="Password"
+        type="password"
+        name="password"
+        required
+      />
 
-    handleInputChange(e) {
-        this.setState({
-            [e.target.name]: e.target.value
-        })
-    }
-    render() {
-        const {firstName, lastName, email, password} = this.state
-            return (
-                <form>
-                  <input
-                    value={firstName}
-                    onChange={this.handleInputChange}
-                    placeholder="First name"
-                    type="text"
-                    name="firstName"
-                    required
-                  />
-                  <input
-                    value={lastName}
-                    onChange={this.handleInputChange}
-                    placeholder="Last name"
-                    type="text"
-                    name="lastName"
-                    required
-                  />
-                  <input
-                    value={email}
-                    onChange={this.handleInputChange}
-                    placeholder="Email address"
-                    type="email"
-                    name="email"
-                    required
-                  />
-                  <input
-                    value={password}
-                    onChange={this.handleInputChange}
-                    placeholder="Password"
-                    type="password"
-                    name="password"
-                    required
-                  />
-                 
-                  <button type="submit">Login</button>
-                </form>
-        )
-    }
+    
+      <button type="submit">Login</button>
+    </form>
+  );
 }
+export default LoginPage;

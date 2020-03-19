@@ -2,30 +2,22 @@ import React, { useState } from "react";
 // import "./styles.css";
 
 
-const Form = () => {
-
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
+const RegistrationPage = () => {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [password_confirmation, setPasswordConfirmation] = useState("");
   return (
     <form>
       <input
-        value={firstName}
-        onChange={e => setFirstName(e.target.value)}
-        placeholder="First name"
+        value={name}
+        onChange={e => setName(e.target.value)}
+        placeholder="Name"
         type="text"
-        name="firstName"
+        name="name"
         required
       />
-      <input
-        value={lastName}
-        onChange={e => setLastName(e.target.value)}
-        placeholder="Last name"
-        type="text"
-        name="lastName"
-        required
-      />
+  
       <input
         value={email}
         onChange={e => setEmail(e.target.value)}
@@ -42,8 +34,17 @@ const Form = () => {
         name="password"
         required
       />
-      <button type="submit">Submit</button>
+
+      <input
+        value={password_confirmation}
+        onChange={e => setPasswordConfirmation(e.target.value)}
+        placeholder="Password Confirmation"
+        type="password"
+        name="password"
+        required
+      />
+      <button type="submit">Signup</button>
     </form>
   );
 }
-export default Form;
+export default RegistrationPage;
